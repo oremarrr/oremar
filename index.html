@@ -2,169 +2,149 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>🎄 Nice Bizli Yıllara Evşan 🎄</title>
+<title>MUTLU YILLLARR 🎄</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
-
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap');
+
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-  min-height:100vh;
-  font-family:'Montserrat',sans-serif;
-  background:radial-gradient(circle at top,#1a0008,#000);
-  color:#ffdbe8;
+  font-family:'Playfair Display',serif;
+  background:#0b0b0b;
+  color:#ffd6e8;
   overflow-x:hidden;
 }
 
-/* 🎭 GERÇEKÇİ PERDE */
+/* 🎭 PERDE */
 .curtain{
   position:fixed;
   top:0;
   width:50%;
   height:100vh;
-  background:linear-gradient(90deg,#7a001f,#b3003c,#7a001f);
-  z-index:9999;
-  animation:curtainWave 1.8s ease forwards;
+  background:linear-gradient(90deg,#7a0000,#b30000);
+  z-index:999;
 }
-.left{left:0}
-.right{right:0}
+.left{left:0;animation:openLeft 2.5s forwards;}
+.right{right:0;animation:openRight 2.5s forwards;}
 
-@keyframes curtainWave{
-  0%{transform:translateX(0)}
-  100%{transform:translateX(-110%)}
-}
-.right{
-  animation:curtainWaveR 1.8s ease forwards;
-}
-@keyframes curtainWaveR{
-  to{transform:translateX(110%)}
-}
+@keyframes openLeft{to{transform:translateX(-100%)}}
+@keyframes openRight{to{transform:translateX(100%)}}
 
-/* 🌲 ÇAM AĞACI */
-.tree-side{
-  position:fixed;
-  right:0;
-  bottom:0;
-  font-size:120px;
-  z-index:2;
-}
-
-/* 🐱 KEDİ */
-.cat{
-  position:fixed;
-  right:60px;
-  bottom:120px;
-  font-size:70px;
-  animation:catMove 3s infinite ease-in-out;
-}
-
-@keyframes catMove{
-  50%{transform:translateY(-10px)}
-}
-
-/* 💬 KEDİ BALONU */
-.speech{
-  position:fixed;
-  right:140px;
-  bottom:190px;
-  background:rgba(255,255,255,.15);
-  backdrop-filter:blur(6px);
-  padding:10px 14px;
-  border-radius:14px;
-  font-size:14px;
-  animation:fadeTalk 4s infinite;
-}
-
-@keyframes fadeTalk{
-  0%,100%{opacity:0}
-  30%,70%{opacity:1}
-}
-
-/* ✨ HEADER */
-header{
+/* 🌌 ARKA PLAN */
+.wrapper{
+  min-height:100vh;
+  background:radial-gradient(circle at top,#3b001a,#000);
   text-align:center;
-  padding:80px 20px 40px;
-}
-h1{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(28px,6vw,48px);
+  padding:80px 20px;
+  animation:fadeIn 3s ease;
 }
 
-/* 🔘 BUTON */
-.center{text-align:center;margin:40px}
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+h1{
+  font-size:42px;
+  margin-bottom:15px;
+}
+
+p.subtitle{
+  opacity:.8;
+  margin-bottom:50px;
+}
+
+/* 💖 BUTON */
 button{
-  padding:16px 36px;
-  border-radius:40px;
+  padding:18px 40px;
+  border-radius:50px;
   border:none;
-  background:#ff3f8e;
-  color:#fff;
   font-size:18px;
   cursor:pointer;
+  background:#ff3366;
+  color:#000;
   animation:pulse 2s infinite;
 }
-@keyframes pulse{50%{transform:scale(1.1)}}
+
+@keyframes pulse{
+  50%{transform:scale(1.12)}
+}
 
 /* 📜 ŞİİR */
-#poem{
+#poemBox{
   display:none;
-  max-width:720px;
-  margin:30px auto;
-  padding:30px;
+  max-width:800px;
+  margin:60px auto;
+  padding:35px;
   background:rgba(0,0,0,.55);
-  border-radius:20px;
-  backdrop-filter:blur(8px);
+  border-radius:25px;
+  box-shadow:0 0 40px rgba(255,0,80,.3);
 }
 
-.fade-char{
-  opacity:0;
-  filter:blur(4px);
-  animation:fadeChar .9s ease forwards;
+#poemText{
+  white-space:pre-line;
+  line-height:1.8;
+  font-size:18px;
+  min-height:200px;
 }
 
-@keyframes fadeChar{
-  to{opacity:1;filter:blur(0)}
+/* ❤️ KALP */
+.heart{
+  position:fixed;
+  width:14px;height:14px;
+  background:pink;
+  transform:rotate(45deg);
+  animation:fly 2s linear forwards;
+}
+.heart:before,.heart:after{
+  content:'';
+  position:absolute;
+  width:14px;height:14px;
+  background:pink;
+  border-radius:50%;
+}
+.heart:before{top:-7px}
+.heart:after{left:-7px}
+
+@keyframes fly{
+  to{transform:translateY(-120vh) rotate(45deg);opacity:0}
 }
 
-/* 📱 MOBİL */
-@media(max-width:600px){
-  .tree-side{font-size:80px}
-  .cat{font-size:50px;right:40px}
-  .speech{right:100px;font-size:12px}
+footer{
+  margin-top:80px;
+  opacity:.5;
 }
 </style>
 </head>
 
 <body>
 
+<!-- 🎭 PERDELER -->
 <div class="curtain left"></div>
 <div class="curtain right"></div>
 
-<div class="tree-side">🎄</div>
-<div class="cat">🐱</div>
-<div class="speech">Seni çok seviyor 💖</div>
-
 <audio id="music" loop>
-  <source src="music.mp3" type="audio/mpeg">
+  <source src="blok.mp3" type="audio/mpeg">
 </audio>
 
-<header>
-  <h1>aşkımm 💖</h1>
-  <p>Yeni yılın en güzel hâli sensin</p>
-</header>
+<div class="wrapper">
+  <h1>YENİ YILIN KUTLU OLSUN BİTANEMMM 🎄💖🎄</h1>
+  <p class="subtitle">GÖZLERİNE HİTAP ETMENİN DİLİ ŞİİR İSE, BUTONA BAS :)</p>
 
-<div class="center">
-  <button onclick="start()">💖 senin için 💖</button>
-</div>
+  <button onclick="start()">💖 Senin İçin 💖</button>
 
-<div id="poem">
-  <h2>Yeni Yıla Seninle</h2>
-  <div id="poemText"></div>
+  <div id="poemBox">
+    <h2>Yeni Yıla Seninle</h2>
+    <div id="poemText"></div>
+  </div>
+
+  <footer>powered by Berat</footer>
 </div>
 
 <script>
-const poem=`Yeni yıl kapıyı çalarken,
+const poem = `Yeni yıl kapıyı çalarken,
 kar taneleri sessizce düşerken
 ben dilek tutmuyorum artık,
 çünkü en güzel dileğim sensin.
@@ -183,7 +163,7 @@ Yeni yıl;
 daha çok sarılmak,
 daha çok gülmek
 ve her şeye rağmen
-“iyi ki” demek demekse:
+“iyi ki” demekse:
 
 Ben bu yılı da
 sonrakileri de
@@ -192,7 +172,7 @@ seninle istiyorum EVŞANIM 🎄💖`;
 let i=0;
 
 function start(){
-  document.getElementById("poem").style.display="block";
+  document.getElementById("poemBox").style.display="block";
   document.getElementById("poemText").innerHTML="";
   document.getElementById("music").play();
   i=0;
@@ -201,13 +181,20 @@ function start(){
 
 function type(){
   if(i<poem.length){
-    const span=document.createElement("span");
-    span.className="fade-char";
-    span.textContent=poem[i];
-    document.getElementById("poemText").appendChild(span);
+    document.getElementById("poemText").innerHTML += poem[i];
+    heart();
     i++;
-    setTimeout(type,120);
+    setTimeout(type,40);
   }
+}
+
+function heart(){
+  let h=document.createElement("div");
+  h.className="heart";
+  h.style.left=Math.random()*100+"vw";
+  h.style.bottom="-20px";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),2000);
 }
 </script>
 
